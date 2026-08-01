@@ -70,20 +70,24 @@ use hr_data;
 
 -- TOTAL EMPLOYEES
 
-select count(emp_id) total_emp from employees;
+select count(emp_id) total_emp 
+from employees;
 
 -- How many Departments are there in the Data?
 
-select distinct(department) Department from employees;
+select distinct(department) Department 
+from employees;
 
 -- How many Male and Female Count in Data
 
-select gender,count(*) Gender_Count from employees
+select gender,count(*) Gender_Count 
+from employees
 GROUP BY gender;
 
 -- Employees City Wise
 
-select DISTINCT(city) Employees_City from employees
+select DISTINCT(city) Employees_City 
+from employees
 ORDER BY Employees_City ASC;
 
 -- How many Employees in Each department?
@@ -98,7 +102,8 @@ ORDER BY DEpartment ASC;
 
 -- What is the average salary in each department?
 
-select department,ROUND(avg(salary),2) avg_salary 
+select department,
+ROUND(avg(salary),2) avg_salary 
 FROM employees
 GROUP BY department
 ORDER BY department ASC;
@@ -107,7 +112,8 @@ ORDER BY department ASC;
 
 select Name,salary
 FROM employees
-WHERE salary = (select max(salary) from employees);
+WHERE salary = 
+(select max(salary) from employees);
 													 -- OR --
 select Name,salary
 FROM employees
@@ -118,7 +124,8 @@ LIMIT 1;
 
 select Name,salary as min_salary
 FROM employees
-WHERE salary = (select MIN(salary) from employees);
+WHERE salary = 
+(select MIN(salary) from employees);
 
 -- Who are the top 5 highest-paid employees?
 
@@ -129,21 +136,26 @@ LIMIT 5;
 
 -- What is the average salary based on years of experience?
 
-select years_at_company,COUNT(*) Emp_Count,ROUND(AVG(salary),2) avg_sal
+select years_at_company,
+COUNT(*) Emp_Count,
+ROUND(AVG(salary),2) avg_sal
 FROM employees
 GROUP BY years_at_company
 ORDER BY years_at_company;
 
 -- How many employees are there in each city?
 
-select City,Count(emp_id) employees_count
+select City,
+Count(emp_id)
+employees_count
 FROM employees
 GROUP BY city
 ORDER BY employees_count DESC;
 
 -- How many employees are there in each job role?
 
-select job_title,COUNT(*) emp_count
+select job_title,
+COUNT(*) emp_count
 FROM employees
 GROUP BY job_title
 ORDER BY emp_count DESC;
@@ -156,32 +168,47 @@ WITH highest_paid AS
 (select Name,Department,salary,
 ROW_NUMBER() OVER(Partition BY Department ORDER BY SALARY DESC,Name ASC) rn
 FROM employees)
-select Name,Department,Salary from highest_paid
+select Name,
+Department,
+Salary 
+from highest_paid
 WHERE rn=1;
 
 Select Name,Department,Salary 
-FROM (SELECT Name,Department,salary,
+FROM (SELECT 
+Name,
+Department,
+salary,
 ROW_NUMBER() OVER(Partition BY Department ORDER BY SALARY DESC,Name ASC) rn
 FROM employees) T1
 WHERE rn=1;
 
 -- List the top 3 highest-paid employees in each department.
  WITH highest_paid AS
-(select Name,Department,salary,
+(select 
+Name,
+Department,
+salary,
 ROW_NUMBER() OVER(Partition BY Department ORDER BY SALARY DESC) rn
 FROM employees)
-select Name,Department,Salary from highest_paid
+select Name,
+Department,
+Salary 
+from highest_paid
 WHERE rn<=3;
 
 -- Find employees whose salary is greater than the company-wide average salary.
 select Name,salary
 FROM employees
-WHERE salary > (select ROUND(avg(salary),2) 
+WHERE salary > 
+(select ROUND(avg(salary),2) 
 						avg_salary FROM employees);
 
 
 -- Calculate the salary difference (maximum salary − minimum salary) for each department.
-Select Department,(Max(salary)-MIN(Salary)) salary_diff
+
+Select Department,
+(Max(salary)-MIN(Salary)) salary_diff
 from employees
 GROUP BY Department;
 
