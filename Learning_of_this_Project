@@ -1,0 +1,60 @@
+Project Overview
+
+This project demonstrates SQL skills by analyzing an HR employee dataset using MySQL. The project covers database creation, data cleaning, data transformation, and business-focused analysis through SQL queries.
+
+Objectives
+Create and manage an HR database
+Clean and prepare employee data
+Perform exploratory data analysis
+Answer business questions using SQL
+Practice advanced SQL concepts such as CTEs and Window Functions
+Database Operations
+Created MySQL database
+Renamed tables and columns
+Modified data types
+Updated missing salary values
+Cleaned inconsistent data
+SQL Concepts Used
+SELECT
+WHERE
+ORDER BY
+GROUP BY
+Aggregate Functions
+Subqueries
+Common Table Expressions (CTEs)
+Window Functions (ROW_NUMBER())
+ALTER TABLE
+UPDATE
+Data Cleaning
+Business Questions Answered
+Total number of employees
+Department list
+Gender distribution
+Employee city distribution
+Employees in each department
+Average salary by department
+Highest-paid employee
+Lowest-paid employee
+Top 5 highest-paid employees
+Average salary based on years at the company
+Employees in each city
+Employees in each job role
+Highest-paid employee in each department
+Top 3 highest-paid employees in each department
+Employees earning more than the company average salary
+Salary difference (Maximum − Minimum) for each department
+Employees with more than 5 years of experience
+Skills Demonstrated
+Database Management
+Data Cleaning
+Business Query Writing
+Analytical Thinking
+SQL Optimization
+Window Functions
+Common Table Expressions (CTEs)
+Tools Used
+MySQL
+MySQL Workbench
+Project Outcome
+
+This project strengthened my understanding of SQL by applying database management, data cleaning, aggregation, subqueries, and window functions to solve practical HR business problems. It serves as a foundational portfolio project for a Data Analyst role.
