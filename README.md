@@ -69,20 +69,25 @@ use hr_data;
 
 
 -- TOTAL EMPLOYEES
+
 select count(emp_id) total_emp from employees;
 
 -- How many Departments are there in the Data?
+
 select distinct(department) Department from employees;
 
 -- How many Male and Female Count in Data
+
 select gender,count(*) Gender_Count from employees
 GROUP BY gender;
 
 -- Employees City Wise
+
 select DISTINCT(city) Employees_City from employees
 ORDER BY Employees_City ASC;
 
 -- How many Employees in Each department?
+
 select Department,count(emp_id) Total_Emp
 FROM employees 
 Group by Department
